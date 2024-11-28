@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import BASE_URL from '../config';
 
 const TaskEdit = () => {
   const [task, setTask] = useState({
@@ -16,7 +17,7 @@ const TaskEdit = () => {
   useEffect(() => {
     const fetchTask = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/tasks/${id}`);
+        const response = await fetch(`${BASE_URL}/api/tasks/${id}`);
         const data = await response.json();
         if (data.task) {
           setTask(data.task); // Set task data in state
@@ -41,7 +42,7 @@ const TaskEdit = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:4000/api/tasks/${id}`, {
+      const response = await fetch(`${BASE_URL}/api/tasks/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(task),

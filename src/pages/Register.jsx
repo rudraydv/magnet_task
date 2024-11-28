@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import BASE_URL from '../config';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -66,7 +67,7 @@ const Register = () => {
     if (!validate()) return; // Prevent form submission if validation fails
 
     try {
-      const response = await fetch("http://localhost:4000/api/auth/register", {
+      const response = await fetch(`${BASE_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

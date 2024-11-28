@@ -1,4 +1,5 @@
 import React, { createContext, useState,useEffect } from "react";
+import BASE_URL from '../config';
 
 const AuthContext = createContext();
 
@@ -18,7 +19,7 @@ useEffect(() => {
  const logout = async () => {
   try {
     
-    await fetch("http://localhost:4000/api/auth/logout", {
+    await fetch(`${BASE_URL}/api/auth/logout`, {
       method: "GET",
       credentials: "include", 
     });

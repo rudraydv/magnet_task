@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import AuthContext from "../context/AuthContext";
+import BASE_URL from '../config';
 
 const TaskDetails = () => {
   const { id } = useParams();
@@ -11,7 +12,7 @@ const TaskDetails = () => {
   useEffect(() => {
     const fetchTask = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/tasks/${id}`, {
+        const response = await axios.get(`${BASE_URL}/api/tasks/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTask(response.data);

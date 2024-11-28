@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext } from "react";
 import axios from "axios";
 import AuthContext from "./AuthContext";
+import BASE_URL from '../config';
 
 const TaskContext = createContext();
 
@@ -10,7 +11,7 @@ export const TaskProvider = ({ children }) => {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/tasks", {
+      const response = await axios.get(`${BASE_URL}/api/tasks`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(response.data.tasks);
@@ -21,7 +22,7 @@ export const TaskProvider = ({ children }) => {
 
   const createTask = async (taskData) => {
     try {
-      const response = await axios.post("http://localhost:4000/api/tasks", taskData, {
+      const response = await axios.post(`${BASE_URL}/api/tasks`, taskData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks((prevTasks) => [...prevTasks, response.data]);
@@ -32,7 +33,7 @@ export const TaskProvider = ({ children }) => {
 
   const updateTask = async (id, updates) => {
     try {
-      const response = await axios.put(`http://localhost:4000/api/tasks/${id}`, updates, {
+      const response = await axios.put(`${BASE_URL}/api/tasks/${id}`, updates, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks((prevTasks) =>
@@ -45,7 +46,7 @@ export const TaskProvider = ({ children }) => {
 
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/api/tasks/${id}`, {
+      await axios.delete(`${BASE_URL}/api/tasks/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));

@@ -60,7 +60,7 @@ const TaskList = () => {
       <h1 className="text-2xl mb-4">Task List</h1>
       {tasks.map((task) => (
         <div key={task._id} className="p-4 border-b">
-          <h2 className="text-xl">{task.title}</h2>
+          <h2 className="text-2xl font-semibold">{task.title}</h2>
           <p>{task.description}</p>
           <p>Due: {new Date(task.dueDate).toLocaleDateString()}</p>
           <p>Priority: {task.priority}</p>
@@ -70,13 +70,13 @@ const TaskList = () => {
          deleteTask(task._id);
          toast.success("Task deleted successfully!");
           }}
-         className="text-red-500 mr-4"
+         className="bg-red-500 text-white px-4 py-2  mr-4 my-3"
           >
            Delete
          </button>
           <button
             onClick={() => openModal(task)}
-            className="text-blue-600"
+            className="bg-blue-600 text-white hover:bg-blue-800 px-4 py-2 my-3"
           >
             Edit
           </button>

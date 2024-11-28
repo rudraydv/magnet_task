@@ -33,14 +33,19 @@ const Header = () => {
       </header>
 
       {/* Main Content */}
-      <main className="flex flex-col items-center justify-center text-center px-6 mt-14">
-        <h2 className="text-4xl md:text-5xl lg:text-8xl font-extrabold text-black leading-snug">
-          Magnet Brains <br /> <span className="text-orange-500">Test Assessment</span>
+      <main className="flex flex-col items-center justify-center text-center px-6">
+        <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-black leading-snug">
+          MernStack <br /> <span className="text-orange-500">Task description</span>
         </h2>
-        <p className="mt-4 text-gray-600 max-w-lg text-sm lg:text-lg">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea recusandae dicta doloribus, corrupti necessitatibus dolore commodi ex ipsa eveniet,
+        <p className="mt-4 text-black font-semibold max-w-lg text-sm">
+        Developed a full-stack task management application using the MERN stack (MongoDB, Express.js, React.js, Node.js). The project included the following features:
         </p>
-      
+        <p className="max-w-lg text-xs font-semibold my-2">1. <span className="font-bold"> Authentication System:</span> Implemented user registration, login, and logout functionality with secure JWT-based authentication.</p>
+        <p className="max-w-lg text-xs font-semibold my-2">2. <span className="font-bold"> Task Management:</span> Designed CRUD operations for tasks, including features for creating, editing, deleting, and updating task status and priority.</p>
+        <p className="max-w-lg text-xs font-semibold my-2">3. <span className="font-bold"> Responsive UI:</span> Built a mobile-first, user-friendly interface with React.js and styled using Tailwind CSS.</p>
+        <p className="max-w-lg text-xs font-semibold my-2">4. <span className="font-bold"> Real Time Notifications:</span> Integrated toast notifications for login, logout, task creation, and task updates using react-hot-toast.</p>
+        <p className="max-w-lg text-xs font-semibold my-2">5. <span className="font-bold"> Deployed:</span> Deployed the frontend to GitHub Pages and the backend to Render, ensuring seamless integration and API communication.</p>
+
       </main>
     </div>
   );
