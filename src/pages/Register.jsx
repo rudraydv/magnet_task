@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toast from 'react-hot-toast';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -75,10 +76,10 @@ const Register = () => {
 
       if (response.status === 400) {
         // Handle backend validation errors
-        alert(data.message || "User registration failed.");
+        toast.error(data.message || "User registration failed.");
       } else {
         // Registration successful
-        alert(data.message || "User registered successfully!");
+        toast.success(data.message || "User registered successfully!");
         navigate("/dashboard"); // Redirect to login page after successful registration
       }
     } catch (error) {

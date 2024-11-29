@@ -6,12 +6,11 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
    
 useEffect(() => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    setUser({ name: "User" }); 
+  const storedUser = localStorage.getItem('user');
+  if (storedUser) {
+    setUser(JSON.parse(storedUser));
   }
 }, []);
-
 
 
  // Logout function
@@ -24,8 +23,9 @@ useEffect(() => {
     });
 
     // Clear user state and local storage
-    setUser(null);
+    
     localStorage.removeItem("token");
+    setUser(null);
   } catch (error) {
     console.error("Logout failed:", error);
   }
